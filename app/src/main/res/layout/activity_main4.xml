@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/fragment_container"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    tools:context="com.arbol.android.Main4Activity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/userId"
+        android:layout_width="208dp"
+        android:layout_height="36dp"
+        android:layout_margin="0dp"
+        android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/button_id"
+        android:layout_width="114dp"
+        android:layout_height="32dp"
+        tools:layout_marginStart="200dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="@string/sign_out"
+        android:textColorLink="@android:color/holo_green_dark"
+        android:theme="@style/ThemeOverlay.MyDarkButton" />
+
+
+</FrameLayout>
