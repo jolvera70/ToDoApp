@@ -51,7 +51,8 @@
             android:name=".main.Main3Activity"
             android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.arbol.android.Main4Activity"></activity>
+        <activity android:name=".main.MainPageActivity" />
+        <activity android:name=".main.Main5Activity"></activity>
     </application>
 
 </manifest>

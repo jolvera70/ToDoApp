@@ -18,6 +18,9 @@ import android.arbol.com.todoapp.R;
 
 import android.arbol.com.todoapp.main.dummy.DummyContent;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 /**
@@ -139,4 +142,8 @@ public class ItemListActivity extends AppCompatActivity {
             }
         }
     }
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
+
 }

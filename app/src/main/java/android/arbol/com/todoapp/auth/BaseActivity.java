@@ -5,6 +5,9 @@ import android.arbol.com.todoapp.R;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 /**
  * Created by Jorge on 27/08/2017.
  */

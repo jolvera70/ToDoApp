@@ -17,9 +17,8 @@
 package android.arbol.com.todoapp.auth;
 
 import android.arbol.com.todoapp.R;
-import android.arbol.com.todoapp.main.ItemDetailActivity;
-import android.arbol.com.todoapp.main.ItemListActivity;
-import android.arbol.com.todoapp.main.Main3Activity;
+import android.arbol.com.todoapp.main.Main5Activity;
+import android.arbol.com.todoapp.main.MainPageActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,7 +27,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arbol.android.Main4Activity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -184,7 +182,7 @@ public class GoogleSignInActivity extends BaseActivity implements
 
 
     private void Enter() {
-        startActivity(new Intent(this,Main4Activity.class));
+        startActivity(new Intent(this,MainPageActivity.class));
     }
 
     private void revokeAccess() {

@@ -1,6 +1,7 @@
 package android.arbol.com.todoapp.auth;
 
 import android.arbol.com.todoapp.R;
+import android.arbol.com.todoapp.main.MainPageActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arbol.android.Main4Activity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -181,7 +181,7 @@ import com.google.firebase.auth.FirebaseUser;
     }
 
     private void Enter() {
-        startActivity(new Intent(this,Main4Activity.class));
+        startActivity(new Intent(this,MainPageActivity.class));
     }
 }
 

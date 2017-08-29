@@ -35,6 +35,8 @@
     <string name="sign_out">Sign Out</string>
     <string name="enter">Enter</string>
     <string name="welcome">Welcome</string>
+    <string name="adoptar">Adoptar</string>
+    <string name="ayudar">Ayudar</string>
 
     <string name="verify_email">Verify Email</string>
     <string name="disconnect">Disconnect</string>
