@@ -12,7 +12,7 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:contentDescription="@string/desc_firebase_lockup"
+        android:contentDescription="@string/desc_adopta_lockup"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/firebase_lockup_400"
         android:layout_width="wrap_content"
