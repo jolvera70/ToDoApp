@@ -1,7 +1,6 @@
 package android.arbol.com.todoapp.auth;
 
 import android.arbol.com.todoapp.R;
-import android.arbol.com.todoapp.main.Main5Activity;
 import android.arbol.com.todoapp.main.MainPageActivity;
 import android.content.Intent;
 import android.os.Bundle;

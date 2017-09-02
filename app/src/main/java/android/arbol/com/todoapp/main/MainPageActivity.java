@@ -4,11 +4,8 @@ import android.arbol.com.todoapp.R;
 import android.arbol.com.todoapp.auth.BaseActivity;
 import android.arbol.com.todoapp.auth.ChooserActivity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,12 +28,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
-import java.net.URI;
-import java.net.URL;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class MainPageActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,8 +47,7 @@ public class MainPageActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(MainPageActivity.this,AddObjectActivity.class));
             }
         });
 
@@ -142,7 +131,7 @@ public class MainPageActivity extends BaseActivity
 
     private void showList() {
 
-        final ListView listView = (ListView) findViewById(R.id.listView);
+        final ListView listView = (ListView) findViewById(R.id.listViewArbol);
         // Create a new Adapter
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1);

@@ -52,7 +52,7 @@
             android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".main.MainPageActivity" />
-        <activity android:name=".main.Main5Activity"></activity>
+        <activity android:name=".main.AddObjectActivity"></activity>
     </application>
 
 </manifest>

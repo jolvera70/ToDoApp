@@ -153,3 +153,161 @@
  }
 
 }
+
+
+
+{
+  "users": {
+    "userId1": { //sequce? or firebase platform id
+      "name": "Ada cuidador",
+      "cuenta cobro" : ""
+      "cuenta pago" "3423412pagotrabajo"
+      "groups": {
+         // the value here doesn't matter, just that the key exists
+         "cuidadoresObjectId1": true,
+      }
+    },
+    "userId2": { //sequce? or firebase platform id
+      "name": "Saul pagador",
+      // Index Ada's groups in her profile
+      "cuenta cobro" : "3423412donacion"
+      "cuenta pago" ""
+      "groups": {
+         // the value here doesn't matter, just that the key exists
+         "pagadoresObjectId2": true,
+      }
+    }
+  },
+    "userId3": { //sequce? or firebase platform id
+      "name": "Leo pagador cuidador",
+      "cuenta cobro" : "3423412donacion" //paypal
+      "cuenta pago" "3423412pagotrabajo" //paypal
+      "groups": {
+         // the value here doesn't matter, just that the key exists
+         "pagadoreObjectId1": true,
+         "cuidadoresObjectId2": true,
+      }
+    }
+  },
+
+  "objectCare": {
+    "objectId1": { //sequence
+      "name": "Arbol 1",
+      "direccion"{
+      	ubicacion. (coordenadas)
+      	calle.
+      	colonia.
+      	municipio.
+      	estado
+      	pais.
+      	Referencias.
+      }
+      "imagenes":{
+      	"imagenesObjectId1" : true
+      }
+      "groups": {
+         "cuidadoresObjectId1": true,
+         "donadoresObjectId1": true
+      }
+    },
+    "objectId2": { //sequence
+      "name": "Arbol 2",
+      "direccion"{
+      	ubicacion. (coordenadas)
+      	calle.
+      	colonia.
+      	municipio.
+      	estado
+      	pais.
+      	Referencias.
+      }
+      "imagenes":{
+      	"imagenesObjectId2" : true
+      	}
+      "groups": {
+         "cuidadoresObjectId2": true,
+         "donadoresObjectId2": true
+      }
+    },
+   ...
+  },
+
+  "groups": {
+    "cuidadoresObjectId1": {
+      "name": "Grupo de cuidadores de ObjectId1",
+      "obects": {
+        "objectId1": true,
+      }
+      "members": {
+        "userId1": true,
+      }
+      "pagos":{
+ 	"userId1": [pago,fecha,type],
+	"userId1": [pago,fecha,type],
+	}
+   },
+    "donadoresObjectId1": {
+      "name": "Grupo de donadores de ObjectId1",
+      "obects": {
+        "objectId2": true,
+      }
+      "members": {
+	"userId1": true,
+	"userIdn": true,
+	}
+	"donaciones":{
+ 	 "userId1": [monto,fecha,type],
+	"userId1": [monto,fecha,type],
+	"userIdn": [monto,fecha,type],
+	}
+    },
+
+    "cuidadoresObjectId2": {
+      "name": "Grupo de cuidadores de ObjectId2",
+      "obects": {
+        "objectId2": true,
+      }
+      "members": {
+        "userId2": true,
+      }
+      "pagos":{
+ 	"userId2": [pago,fecha,type],
+	"userId3": [pago,fecha,type],
+	}
+    },
+    "donadoresObjectId2": {
+      "name": "Grupo de donadores de ObjectId2",
+      "obects": {
+        "objectId2": true,
+      }
+      "members": {
+	"userId2": true,
+	"userId1": true,
+	}
+	"donaciones":{
+ 	 "userId2": [monto,fecha,type],
+	"userId2": [monto,fecha,type],
+	"userIdn": [monto,fecha,type],
+	}
+    },
+
+  }
+
+  "imagenes"{
+      "imagenesObjectId1": {
+        "name": "imagenes de ObjectId1",
+        "imagenes":[imag1,imag2],
+        "videos":[vid1,vid2],
+        "obects": {
+          "objectId1": true,
+        }
+      "imagenesObjectId2": {
+        "name": "imagenes de ObjectId2",
+        "imagenes":[imag1,imag2],
+        "videos":[vid1,vid2],
+        "obects": {
+          "objectId2": true,
+        }
+ }
+
+}

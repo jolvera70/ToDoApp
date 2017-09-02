@@ -17,12 +17,15 @@
 package android.arbol.com.todoapp.auth;
 
 import android.arbol.com.todoapp.R;
+import android.arbol.com.todoapp.main.MainPageActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.common.SignInButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Simple list-based Activity to redirect to one of the other Activities. This Activity does not
@@ -39,6 +42,13 @@ public class ChooserActivity  extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chooser);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth!=null){
+            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+            if(currentUser!=null){
+                startActivity(new Intent(ChooserActivity.this, MainPageActivity.class));
+            }
+        }
 
         Button faceButton = (Button) findViewById(R.id.button_facebook_login);
         faceButton.setOnClickListener(new View.OnClickListener() {
