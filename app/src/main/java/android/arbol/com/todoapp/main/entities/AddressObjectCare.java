@@ -8,6 +8,8 @@ public class AddressObjectCare {
 
     private double latitude;
     private double longitude;
+    private String zone;
+    private String colony;
 
     public double getLatitude() {
         return latitude;
@@ -23,5 +25,21 @@ public class AddressObjectCare {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getColony() {
+        return colony;
+    }
+
+    public void setColony(String colony) {
+        this.colony = colony;
     }
 }

@@ -58,56 +58,8 @@ public class AddObjectActivity extends BaseActivity {
             }
         });
 
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        final TextView userId = (TextView) findViewById(R.id.userId);
-        userId.append(" " + currentUser.getDisplayName());
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("appArbol_ObjectCare");
-
-        final ListView listView = (ListView) findViewById(R.id.listViewArbol);
-        // Create a new Adapter
-        final ArrayAdapter<Map<String,String>> adapter = new ArrayAdapter<Map<String,String>>(this,
-                android.R.layout.simple_list_item_1);
-        // Assign adapter to ListView
-        listView.setAdapter(adapter);
-        // Connect to the Firebase database
-
-        // Get a reference to the todoItems child items it the database
-
-        // Assign a listener to detect changes to the child items
-        // of the database reference.
-        myRef.addChildEventListener(new ChildEventListener() {
-
-            // This function is called once for each child that exists
-            // when the listener is added. Then it is called
-            // each time a new child is added.
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
-                adapter.add(map);
-            }
-
-            // This function is called each time a child item is removed.
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                HashMap<String,String> value = dataSnapshot.getValue(HashMap.class);
-                adapter.remove(value);
-            }
-
-            // The following functions are also required in ChildEventListener implementations.
-            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-            }
-
-            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG:", "Failed to read value.", error.toException());
-            }
-        });
-
+        final DatabaseReference myRef = database.getReference("appArbol_ObjectCare/objects");
 
         // Add items via the Button and EditText at the bottom of the window.
         final EditText text = (EditText) findViewById(R.id.todoText);
@@ -116,8 +68,8 @@ public class AddObjectActivity extends BaseActivity {
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 final DatabaseReference myRef = database.getReference("appArbol_ObjectCare");
-                String uid = myRef.child("objects").push().getKey();
-
+                String uid = myRef.child("appArbol_ObjectCare").push().getKey();
+/*
                 Map<String, ObjectCare> objectCareMap = createObjectCare(uid);
                 myRef.child("objects").setValue(objectCareMap);
 
@@ -128,8 +80,11 @@ public class AddObjectActivity extends BaseActivity {
                 myRef.child("images").setValue(imageCareMap);
 
                 Map<String, UserCare> userCareMap = createUserCare(uid);
-                myRef.child("user").setValue(userCareMap);
+                myRef.child("user").setValue(userCareMap);*/
+
+                writeNewObectCare();
                 finish();
+                startActivity(new Intent(AddObjectActivity.this,MainPageActivity.class));
             }
         });
 
@@ -159,28 +114,7 @@ public class AddObjectActivity extends BaseActivity {
         })
         ;}
         */
-/*        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        mStorageRef=firebaseStorage.getReference();
-     mStorageRef.child("image1.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    // Got the download URL for 'users/me/profile.png'
-                    try{
-                        imageView = (ImageView) findViewById(R.id.imageView1);
-                        URL url = new URL(uri.getPath());
-                        Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                        imageView.setImageBitmap(bmp);
-                    }catch (Exception e){
-                        Log.e("Error ",e.getMessage());
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    // Handle any errors
-                }
-            });
-    }*/
+
     }
 
     private  Map<String, ObjectCare> createObjectCare(String uid) {
@@ -208,7 +142,7 @@ public class AddObjectActivity extends BaseActivity {
         return objectCareMap;
     }
 
-    private  Map<String, GroupCare> createGroup(String uid) {
+    private  Map<String, Object> createGroup(String uid) {
         Map<String,Boolean> object = new HashMap<String, Boolean>();
         Map<String,Map<String,String>> pagos = new HashMap<String,Map<String,String>>();
         Map<String,Map<String,String>> cobros = new HashMap<String,Map<String,String>> ();
@@ -229,12 +163,12 @@ public class AddObjectActivity extends BaseActivity {
         groupCare.setPagos(pagos);
         groupCare.setCobros(cobros);
 
-        Map<String, GroupCare> groupCareMap = new HashMap<String, GroupCare>();
+        Map<String, Object> groupCareMap = new HashMap<String, Object>();
         groupCareMap.put("groupCuidadores"+uid,groupCare);
         return groupCareMap;
     }
 
-    private  Map<String, MediaCare> createImageGroup(String uid) {
+    private  Map<String, Object> createImageGroup(String uid) {
         Map<String,Boolean> object = new HashMap<String, Boolean>();
         object.put(uid,true);
         MediaCare mediaCare = new MediaCare();
@@ -245,7 +179,7 @@ public class AddObjectActivity extends BaseActivity {
         mediaCare.setImages(images);
         mediaCare.setObjects(object);
 
-        Map<String, MediaCare> imageCareMap = new HashMap<String, MediaCare>();
+        Map<String, Object> imageCareMap = new HashMap<String, Object>();
         imageCareMap.put("imagesObject"+uid, mediaCare);
         return imageCareMap;
     }
@@ -261,6 +195,48 @@ public class AddObjectActivity extends BaseActivity {
         Map<String, UserCare> userCareMap = new HashMap<String, UserCare>();
         userCareMap.put("user"+uid, userCare);
         return userCareMap;
+    }
+
+    private void writeNewObectCare() {
+        // Create new objectCare at appArbol_ObjectCare/user and at
+        // /appArbol_ObjectCare/ simultaneously
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("appArbol_ObjectCare/objects");
+        String key = myRef.child("objects").push().getKey();
+        ObjectCare objectCare = new ObjectCare();
+        Map<String, Object> objectCareMap = new HashMap<String, Object>();
+        Map<String,Boolean> groups = new HashMap<String, Boolean>();
+        Map<String,Boolean> images = new HashMap<String, Boolean>();
+
+        AddressObjectCare address = new AddressObjectCare();
+        address.setLatitude(25.686613);
+        address.setLongitude(-100.316116);
+        address.setZone("Cumbres");
+
+        objectCare.setUid(key);
+        final EditText text = (EditText) findViewById(R.id.objectNameText);
+        objectCare.setName(text.getText().toString());
+        images.put("imagesObject"+objectCare.getUid(),true);
+        objectCare.setImages(images);
+        groups.put("groupCuidadores"+objectCare.getUid(),true);
+        groups.put("groupPagadores"+objectCare.getUid(),true);
+        objectCare.setGroups(groups);
+        objectCare.setAddress(address);
+        objectCare.setFotoId("image"+objectCare.getUid());
+
+        objectCareMap.put(objectCare.getUid(),objectCare);
+
+        objectCareMap.put(key,objectCare);
+        myRef.updateChildren(objectCareMap);
+
+        myRef = database.getReference("appArbol_ObjectCare/groups");
+        Map<String,Object> groupCareMap = createGroup(key);
+        myRef.updateChildren(groupCareMap);
+
+        myRef = database.getReference("appArbol_ObjectCare/images");
+        Map<String,Object> imageCareMap = createImageGroup(key);
+        myRef.updateChildren(imageCareMap);
+
     }
 }
 

@@ -1,0 +1,26 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E4:9A:1E:C2:42:C0:CD:D6:B7:D3:A0:98:8F:89:9E:B4:A9:E4:82:CF%3Bandroid.arbol.com.todoapp.main
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    E4:9A:1E:C2:42:C0:CD:D6:B7:D3:A0:98:8F:89:9E:B4:A9:E4:82:CF
+
+    SHA-1 certificate fingerprint:
+    E4:9A:1E:C2:42:C0:CD:D6:B7:D3:A0:98:8F:89:9E:B4:A9:E4:82:CF
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAW9ktZvaJsr2uH37bimGpAL5uM2mau10M
+    </string>
+</resources>

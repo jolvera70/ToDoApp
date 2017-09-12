@@ -1,20 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:paddingTop="0dip"
+    android:screenOrientation="portrait">
 
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    <TableRow android:layout_width="match_parent">
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
-</LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/objectImageId"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:maxWidth="90dp"
+                android:scaleType="fitStart"
+                android:background="#ffffff"
+                app:srcCompat="@mipmap/ic_arbol_adopta" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="0.89"
+                android:orientation="vertical">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="#5683b7"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|clip_horizontal"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="5dp"
+                        android:text="Arbol name"
+                        android:textColor="@color/common_google_signin_btn_text_light_focused"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/zoneTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|clip_horizontal"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/zoneTitle"
+                        android:textColor="@color/common_google_signin_btn_text_light_focused"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/zone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top|clip_horizontal"
+                        android:layout_marginBottom="2dp"
+                        android:text="Zona"
+                        android:textColor="@color/cardview_light_background"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="268dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="0.24"
+                        android:background="@drawable/dgts__digits_btn"
+                        android:elevation="1dp"
+                        android:padding="3dp"
+                        android:text="Ver detalles"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/cardview_light_background"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </TableRow>
+</TableLayout>

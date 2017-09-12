@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#057228"
+            android:background="@android:color/holo_green_dark"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -28,21 +28,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:textStyle="bold"
         android:text="+"
-        app:backgroundTint="#057228"
-        app:srcCompat="@android:drawable/ic_menu_add"/>
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ListView
         android:id="@+id/listViewArbol"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"></ListView>
 
-    <EditText
-        android:id="@+id/textform1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="cambiar"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -34,6 +34,7 @@
     <string name="create_account">Create Account</string>
     <string name="sign_out">Sign Out</string>
     <string name="enter">Enter</string>
+    <string name="objectName">Arbol Name</string>
     <string name="welcome">Welcome</string>
     <string name="adoptar">Adoptar</string>
     <string name="ayudar">Ayudar</string>
@@ -91,5 +92,8 @@
     <string name="title_item_detail">Item Detail</string>
     <string name="title_activity_main3">Main3Activity</string>
     <string name="userId">userId</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="zoneTitle">Zone:</string>
 
 </resources>
